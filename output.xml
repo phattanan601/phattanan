@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on darwin)" generated="20230517 03:33:32.007" rpa="false" schemaversion="3">
+<suite id="s1" name="Kingpower" source="/Users/o_om/Desktop/Documents/Robot/kingpower.robot">
+<test id="s1-t1" name="OPEN WEBBROWSER" line="13">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230517 03:33:32.096" level="INFO">Opening browser 'chrome' to base url 'http://the-internet.herokuapp.com/login'.</msg>
+<msg timestamp="20230517 03:33:32.096" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230517 03:33:32.096" endtime="20230517 03:33:36.768"/>
+</kw>
+<status status="PASS" starttime="20230517 03:33:32.096" endtime="20230517 03:33:36.769"/>
+</test>
+<test id="s1-t2" name="Login success" line="16">
+<kw name="Input Text" library="Selenium2Library">
+<arg>id=username</arg>
+<arg>${input_user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:36.772" level="INFO">Typing text 'tomsmith' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20230517 03:33:36.771" endtime="20230517 03:33:36.925"/>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<arg>id=password</arg>
+<arg>${input_pass}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:36.925" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20230517 03:33:36.940" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230517 03:33:36.962" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230517 03:33:36.925" endtime="20230517 03:33:36.962"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>class=radius</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:36.962" level="INFO">Clicking button 'class=radius'.</msg>
+<status status="PASS" starttime="20230517 03:33:36.962" endtime="20230517 03:33:37.803"/>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>Welcome to the Secure Area. When you are done click logout below.</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230517 03:33:37.804" endtime="20230517 03:33:37.814"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>xpath: //*[contains(text(), "Logout")]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:37.815" level="INFO">Clicking element 'xpath: //*[contains(text(), "Logout")]'.</msg>
+<status status="PASS" starttime="20230517 03:33:37.814" endtime="20230517 03:33:38.394"/>
+</kw>
+<status status="PASS" starttime="20230517 03:33:36.770" endtime="20230517 03:33:38.394"/>
+</test>
+<test id="s1-t3" name="Login failed - Password incorrect" line="23">
+<kw name="Input Text" library="Selenium2Library">
+<arg>id=username</arg>
+<arg>${input_user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:38.395" level="INFO">Typing text 'tomsmith' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20230517 03:33:38.394" endtime="20230517 03:33:38.458"/>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<arg>id=password</arg>
+<arg>${pass_incorrect}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:38.458" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20230517 03:33:38.472" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230517 03:33:38.495" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230517 03:33:38.458" endtime="20230517 03:33:38.495"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>class=radius</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:38.496" level="INFO">Clicking button 'class=radius'.</msg>
+<status status="PASS" starttime="20230517 03:33:38.495" endtime="20230517 03:33:39.142"/>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>Your password is invalid!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230517 03:33:39.143" endtime="20230517 03:33:39.151"/>
+</kw>
+<status status="PASS" starttime="20230517 03:33:38.394" endtime="20230517 03:33:39.152"/>
+</test>
+<test id="s1-t4" name="Login failed - Username not found" line="29">
+<kw name="Input Text" library="Selenium2Library">
+<arg>id=username</arg>
+<arg>${user_incorrect}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:39.153" level="INFO">Typing text 'tomholland' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20230517 03:33:39.152" endtime="20230517 03:33:39.193"/>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<arg>id=password</arg>
+<arg>${input_pass}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:39.193" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg timestamp="20230517 03:33:39.210" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230517 03:33:39.233" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230517 03:33:39.193" endtime="20230517 03:33:39.233"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>class=radius</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230517 03:33:39.233" level="INFO">Clicking button 'class=radius'.</msg>
+<status status="PASS" starttime="20230517 03:33:39.233" endtime="20230517 03:33:39.923"/>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>Your username is invalid!</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230517 03:33:39.923" endtime="20230517 03:33:39.932"/>
+</kw>
+<status status="PASS" starttime="20230517 03:33:39.152" endtime="20230517 03:33:39.932"/>
+</test>
+<status status="PASS" starttime="20230517 03:33:32.008" endtime="20230517 03:33:39.932"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Kingpower">Kingpower</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
